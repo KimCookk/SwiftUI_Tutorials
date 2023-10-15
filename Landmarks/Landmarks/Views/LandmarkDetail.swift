@@ -1,30 +1,31 @@
 //
-//  ContentView.swift
+//  LandmarkDetail.swift
 //  Landmarks
 //
-//  Created by 김태성 on 10/14/23.
+//  Created by 김태성 on 10/15/23.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct LandmarkDetail: View {
+    var landmark: Landmark
     var body: some View {
         VStack {
-            MapView()
+            MapView(coordinate: landmark.locationCoordinate)
                 .frame(height: 300)
             
-            CircleImage()
+            CircleImage(image: landmark.image)
                 .offset(y: -130)
                 .padding(.bottom, -130)
                 
             VStack(alignment: .leading){
-                Text("Turtle Rock")
+                Text(landmark.name)
                     .font(.title)
                 HStack {
-                    Text("Joshua Tree National Park")
+                    Text(landmark.park)
                         .font(.subheadline)
                     Spacer()
-                    Text("California")
+                    Text(landmark.state)
                         .font(.subheadline)
                 }
                 .font(.subheadline)
@@ -32,9 +33,9 @@ struct ContentView: View {
                 
                 Divider()
                 
-                Text("About Turtle Rock")
+                Text("About \(landmark.name)")
                     .font(.title2)
-                Text("Descriptive text goes here.")
+                Text(landmark.description)
             }
             .padding()
             
@@ -44,11 +45,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    LandmarkDetail(landmark: landmarks[0])
 }
-
-// Preview Canvas 좌측 하단 두번째 옵션을 통해 Select Mode 사용 가능
-
-// * Select Mode
-// 해당 모드에서는 캔버스 Select를 통해 코드에 어느 부분에 해당하는지 확인 할 수 있음
-// ctrl + cmd + 클릭시 + show 인스펙터를 통해 UI 속성을 변경 할 수 있음
