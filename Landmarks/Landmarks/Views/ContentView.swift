@@ -15,6 +15,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(ModelData())
 }
 
 // Preview Canvas 좌측 하단 두번째 옵션을 통해 Select Mode 사용 가능

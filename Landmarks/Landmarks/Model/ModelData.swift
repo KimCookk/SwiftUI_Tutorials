@@ -7,7 +7,12 @@
 
 import Foundation
 
-var landmarks: [Landmark] = load("landmarkData.json")
+// Observation을 사용하면 SwfitUI View는 바인딩을 사용하지 않고도 데이터 변경을 지원 할 수 있다.
+@Observable
+class ModelData {
+    var landmarks: [Landmark] = load("landmarkData.json")
+
+}
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
