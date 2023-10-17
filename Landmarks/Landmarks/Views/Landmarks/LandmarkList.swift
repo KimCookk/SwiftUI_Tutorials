@@ -8,7 +8,9 @@
 import SwiftUI
 
 // State는 변경 될 수 있고 뷰의 동작, 콘텐츠 또는 레이아웃에 영향을 미치는 값또는 집합이다.
+// State 값이 변경 될 경우 View는 다시 그려진다.
 // 속성 또는 State 앞에 prefix "$"를 추가하여 값을 바인딩 할 수 있다.
+
 struct LandmarkList: View {
     @Environment(ModelData.self) var modelData
     @State private var showFavoritesOnly = false
